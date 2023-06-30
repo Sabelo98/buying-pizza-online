@@ -1,0 +1,76 @@
+.header{
+    display: flex;
+    background-color: rgb(220, 185, 6);
+}
+.header h1 span{
+    color: rgb(244, 242, 240);
+}
+.header img{
+    width: 80px;
+    height: 80px;
+}
+.center{
+    text-align: center;
+}
+.row{
+    display: block;
+}
+.s-pizza,.m-pizza,.l-pizza{
+    flex:1;
+}
+.cart{
+    display: flex;
+    padding:20px;
+    text-align: center;
+    flex: 1;
+}
+.block{
+    display: block;
+    flex: 1;
+}
+.price{
+    padding: auto;
+    margin: auto;
+    flex: 1;
+}
+.small,.medium,.large{
+    display: flex;
+    padding: 20px;
+}
+.small button, .large button, .medium button{
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+}
+button{
+    background-color: green;
+    color: whitesmoke;
+    border: none;
+    padding: .5em;
+    font-weight: bold;
+    border-radius: 3em;
+    width: 80px;
+    margin-top: 4px;
+}
+button:hover{
+    color: black;
+    background-color: rgb(61, 204, 38);
+}
+img{
+    width: 200px;
+    height: 200px;
+}
+@media (min-width:690px) {
+    .block{
+        flex: 1;
+        display: flex;
+    }
+    .cart{
+        flex: 1;
+        display: flex;
+    }
+    .row{
+        display: flex;
+    }
+    
+}

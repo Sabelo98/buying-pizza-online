@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">  -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Parlour</title>
+    <link rel="stylesheet" href="style.css">
+    </link>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"> </script>
+</head>
+
+
+<body>
+    <div class="container">
+        <div>
+            <div class="header">
+                <img src="pizza-oven.png">
+                <h1 class="center">Pizza <span>Parlour</span></h1>
+            </div>
+
+            <div class="pizzas">
+                <div class="text-align: center">
+
+                    <div class="row">
+
+                        <div class="s-pizza">
+                            <h2>Small</h2>
+                            <img src="pizza.png">
+                            <h3>R49.99</h3>
+                            <div>
+                                Margherita Pizza: Classic combination of fresh tomato sauce, mozzarella cheese, and
+                                basil leaves.
+                            </div>
+                            <button>Buy</button>
+                        </div>
+
+                        <div class="m-pizza">
+                            <h2>Medium</h2>
+                            <img src="pizza(1).png">
+                            <h3>R89.90</h3>
+                            <div>
+                                Hawaiian Pizza: A tropical delight with ham, pineapple chunks, mozzarella cheese and
+                                tomato sauce.
+                            </div>
+                            <button>Buy</button>
+                        </div>
+
+                        <div class="l-pizza">
+                            <h2>Large</h2>
+
+                            <img src=" pizza(2).png" width="200">
+                            <h3>R129.90</h3>
+                            <div>
+                                BBQ Chicken Pizza: Grilled chicken, smoky barbecue sauce, red onions, and mozzarella
+                                cheese. Veggie Supreme Pizza: A medley of fresh vegetables including bell peppers,
+                                mushrooms, onions, olives, and mozzarella cheese.
+                            </div>
+                            <button>Buy</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div x-data="{open:false,message:'',payment:'',count:0,cost:0,smallCount:0,smallPrice:49.99,mediumCount:0,mediumPrice:89.90,largeCount:0,largePrice:129.90}">
+                <h1>Cart</h1>
+                <div class="block">
+                    <div class="cart">
+                        <div>
+                            <h3> Small</h3>
+                            <div class="small">
+                                <button @click="[cost+=smallPrice,smallCount++]">+</button>
+                                <p x-text="smallCount"></p>
+                                <button @click="smallCount>0?[cost-=smallPrice,smallCount--]:0">-</button>
+                            </div>
+                        </div>
+                        <div>
+                            <h3>Medium</h3>
+                            <div class="medium">
+                                <button @click="[cost+=mediumPrice,mediumCount++]">+</button>
+                                <p x-text="mediumCount"></p>
+                                <button @click="mediumCount>0?[cost-=mediumPrice,mediumCount--]:0">-</button>
+                            </div>
+                        </div>
+                        <div>
+                            <h3>Large</h3>
+                            <div class="large">
+                                <button @click="[cost+=largePrice,largeCount++]">+</button>
+                                <p x-text="largeCount"></p>
+                                <button @click="largeCount>0?[cost-=largePrice,largeCount--]:0">-</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="price">
+                        <h1>Total =R<span x-text="cost"></span> </h1>
+                        <p x-text="message" x-show="open"></p>
+                        <input type="text" x-model="payment">
+                        <button @click="payment>=cost?[message='enjoy your Pizza, please call again',open=true]:[message='insufficient amount',open=true]">Buy</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pizza contacts" style="text-align: center;">
+                <h2>Chat with us</h2>
+                Tel: 011 525 2311
+                <div>
+                    Email: pizzaparlour@gmx.com
+                </div>
+                <img src="contact.jpg" width="300">
+
+
+                <div>
+                    Copyright ©
+
+                    <span x-text="new Date().getFullYear()"></span>
+                </div>
+
+            </div>
+
+</body>
+
+</html>

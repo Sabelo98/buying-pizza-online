@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pizza Parlour</title>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"> </script>
+    <script src="code.js"></script>
+    <style>
+        .quantity-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .quantity-container p {
+            margin: 0 10px;
+            font-weight: bold;
+        }
+
+        .quantity-container button {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #ccc;
+            border: none;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .quantity-container button:hover {
+            background-color: #999;
+        }
+    </style>
+</head>
+<body x-data="data">
+    <div class="container">
+        <div class="text-align: center">
+            <img src="pizza-oven.png" width="175">
+            <h1 x-text="header">Pizza Parlour</h1>
+
+            <div class="pizzas">
+                <div class="text-align: center">
+
+    <div class="row">
+        <div class="s-pizza" class="col=s1">
+            <h2>Small</h2>
+            <img src="pizza.png" width="100">
+            <h3>R49.99</h3>
+            <div>
+                Margherita Pizza: Classic combination of fresh tomato sauce, mozzarella cheese, and basil leaves.
+            </div>
+            <div class="quantity-container">
+                <p x-text="smallCount"></p>
+                Small
+                <button @click="smallCount++">+</button>
+                <button @click="smallCount > 0 ? smallCount-- : 0">-</button>
+            </div>
+        </div>
+
+        <div class="m-pizza" class="col= s6">
+            <h2>Medium</h2>
+            <img src="pizza(1).png" width="150">
+            <h3>R89.90</h3>
+            <div>
+                Hawaiian Pizza: A tropical delight with ham, pineapple chunks, mozzarella cheese and tomato sauce.
+            </div>
+            <div x-data="{ count: 0 }" x-init="count = 0" class="quantity-container">
+                <p x-text="mediumCount"></p>
+                Medium
+                <button @click="mediumCount++">+</button>
+                <button @click="mediumCount > 0 ? mediumCount-- : 0">-</button>
+            </div>
+        </div>
+
+        <div class="l-pizza" class="col s6 offset-s6">
+            <h2>Large</h2>
+            <img src="pizza(2).png" width="200">
+            <h3>R129.90</h3>
+            <div>
+                BBQ Chicken Pizza: Grilled chicken, smoky barbecue sauce, red onions, and mozzarella cheese.
+            </div>
+            <div x-data="{ count: 0 }" x-init="count = 0" class="quantity-container">
+                <p x-text="largeCount"></p>
+                Large
+                <button @click="largeCount++">+</button>
+                <button @click="largeCount > 0 ? largeCount-- : 0">-</button>
+            </div>
+        </div>
+
+        <div class="cart" class="text-align:center">
+            <h1>Cart</h1>
+            <div class="small">
+                <div x-data="{ count: 0 }">
+                    <p x-text="count"></p>
+                    Small
+                    <button @click="count++">+</button>
+                    <button @click="count > 0 ? count-- : 0">-</button>
+                </div>
+            </div>
+            <div class="medium">
+                <div x-data="{ count: 0 }">
+                    <p x-text="count"></p>
+                    Medium
+                    <button @click="count++">+</button>
+                    <button @click="count > 0 ? count-- : 0">-</button>
+                </div>
+            </div>
+            <div class="large">
+                <div x-data="{ count: 0 }">
+                    <p x-text="count"></p>
+                    Large
+                    <button @click="count++">+</button>
+                    <button @click="count > 0 ? count-- : 0">-</button>
+                </div>
+            </div>
+            <h4>Total = <span x-text="calculateTotal()"></span></h4>
+        </div>
+    </div>
+
+    <!-- <script>
+        function calculateTotal() {
+            const smallPizzaPrice = 49.99;
+            const mediumPizzaPrice = 89.90;
+            const largePizzaPrice = 129.90;
+
+            const smallCount = parseInt(document.querySelector('.small p').innerText);
+            const mediumCount = parseInt(document.querySelector('.medium p').innerText);
+            const largeCount = parseInt(document.querySelector('.large p').innerText);
+
+            const total = (smallCount * smallPizzaPrice) + (mediumCount * mediumPizzaPrice) + (largeCount * largePizzaPrice);
+
+            return total.toFixed(2);
+        }
+    </script> -->
+</body>
+</html>
